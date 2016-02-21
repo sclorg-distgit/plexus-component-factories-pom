@@ -6,7 +6,7 @@
 
 Name:		%{?scl_prefix}%{pkg_name}
 Version:	1.0
-Release:	0.7.alpha11.11%{?dist}
+Release:	0.7.alpha11.12%{?dist}
 Summary:	Plexus Component Factories POM
 BuildArch:	noarch
 License:	ASL 2.0
@@ -23,7 +23,7 @@ Plexus packages.
 
 %prep
 %setup -cT -n %{pkg_name}-%{version}
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 cp -p %{SOURCE0} pom.xml
 cp -p %{SOURCE1} LICENSE
@@ -32,14 +32,14 @@ cp -p %{SOURCE1} LICENSE
 %{?scl:EOF}
 
 %build
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_alias : plexus:
 %mvn_build
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_install
 %{?scl:EOF}
@@ -49,6 +49,9 @@ set -e -x
 %doc LICENSE
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 1.0-0.7.alpha11.12
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 1.0-0.7.alpha11.11
 - maven33 rebuild
 
