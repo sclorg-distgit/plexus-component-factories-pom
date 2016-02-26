@@ -6,7 +6,7 @@
 
 Name:		%{?scl_prefix}%{pkg_name}
 Version:	1.0
-Release:	0.7.alpha11.12%{?dist}
+Release:	0.7.alpha11.13%{?dist}
 Summary:	Plexus Component Factories POM
 BuildArch:	noarch
 License:	ASL 2.0
@@ -14,7 +14,7 @@ URL:		http://plexus.codehaus.org/
 Source0:	http://repo1.maven.org/maven2/org/codehaus/plexus/%{artifactId}/%{version}-alpha-11/%{artifactId}-%{version}-alpha-11.pom
 Source1:	http://www.apache.org/licenses/LICENSE-2.0.txt
 
-BuildRequires:	%{?scl_prefix_java_common}maven-local
+BuildRequires:	%{?scl_prefix}maven-local
 
 
 %description
@@ -49,6 +49,9 @@ set -e -x
 %doc LICENSE
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 1.0-0.7.alpha11.13
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 1.0-0.7.alpha11.12
 - maven33 rebuild #2
 
